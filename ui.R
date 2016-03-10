@@ -27,8 +27,8 @@ shinyUI(fluidPage(
                                           a(href="reddit.com/r/space","Space."),
                                           "I chose the first two subreddits because they followed different versions 
 of a question-and-answer format, and the second two subreddits because they followed different versions of a community-of-interest format. In I Am A, 
-each thread was dedicated to asking a particular user questions. That user was someone -- often an expert or a celebrity -- with unique knowledge that the community wished to probe. 
-Explain Like I'm Five was a different permutation of the question-and-answer approach. In ELI5 (as it was abbreviated), users created threads asking for simple explanations to 
+each post was dedicated to asking a particular user questions. That user was someone -- often an expert or a celebrity -- with unique knowledge that the community wished to probe. 
+Explain Like I'm Five was a different permutation of the question-and-answer approach. In ELI5 (as it was abbreviated), users created posts asking for simple explanations to 
 complicated questions. Then, other users offered their best answers, and endorsed or critiqued the answers given by others."),
                                         p("The community-of-interest subreddits had a broader focus. In the News subreddit, users posted links to news stories
                                           and discussed those stories. In the Space subreddit, users posted links about and discussed space, astronomy, and physics. The major variation between the two formats

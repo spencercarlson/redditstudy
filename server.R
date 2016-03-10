@@ -8,7 +8,7 @@ library(lubridate)
 library(ggplot2)
 library(ggthemes)
 library(dplyr)
-
+options(shiny.usecairo=FALSE)
 
 shear <- function(string, number_to_shear){
         string <- substr(string,I(number_to_shear+1),nchar(string))
@@ -239,7 +239,9 @@ shinyServer(function(input, output) {
                         ylab(paste(input$metric,"(log10 scale)")) +
                         xlab(input$breakdown) +
                         ggtitle("Number of Votes by Subreddit") +
-                        theme(legend.position = "none")
+                        theme(legend.position = "none", 
+                              text = element_text(size = 12),
+                              plot.title = element_text(size = rel(1.5),face="bold.italic",color="#666666"))
                 g
         })
         
@@ -251,7 +253,9 @@ shinyServer(function(input, output) {
                         ylab("Number of Claims-Response Pairs") +
                         xlab("Response Type") +
                         ggtitle("Frequency of Response Types by Claim Type") +
-                        theme(legend.position = "none")
+                        theme(legend.position = "none", 
+                              text = element_text(size = 12),
+                              plot.title = element_text(size = rel(1.5), face = "bold.italic",color="#666666"))
                 if (input$f != "None") {
                         facetz <- paste(input$f,"~.")
                         gg <- gg + facet_grid(facetz)
@@ -266,7 +270,9 @@ shinyServer(function(input, output) {
                         xlab("Claim Type") +
                         ylab("Frequency (% of Total Claims)") +
                         ggtitle("Frequency of Claims by Type") +
-                        theme(legend.position = "none")
+                        theme(legend.position = "none", 
+                              text = element_text(size = 12),
+                              plot.title = element_text(size = rel(1.5), face = "bold.italic",color="#666666"))
                 
                 ggg
                 

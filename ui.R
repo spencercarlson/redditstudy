@@ -34,7 +34,9 @@ complicated questions. Then, other users offered their best answers, and endorse
                                           and discussed those stories. In the Space subreddit, users posted links about and discussed space, astronomy, and physics. The major variation between the two formats
                                           was the subject of interest -- in News post topics ranged widely, while in Space, the topics were much more focused."),
                                         strong("Sample and Data Collection"),
-                                        p()
+                                        p("The raw data I captured were images of the subreddit home pages and thread conversations. Home pages listed 25 threads per page (except for Space, which listed 26 on its first page and 25 on later pages), and thread conversations had between 0 and thousands of comments.
+                                          I captured images of the first two pages of each subreddit, resulting in a high-level sampling of 50 threads per subreddit. I also captured images of the comments on two posts per subreddit -- the first and last of those fifty threads.
+                                          I did this for each subreddit on two separate days, resulting in a sample of 402 threads captured at a high level, of which 16 were captured in-depth.")
                                          )
                                  )
                          

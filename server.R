@@ -197,14 +197,12 @@ credData <- filter(credData, Claim.type != "Elab source")
 credData <- filter(credData, Claim.type != "Elab credential")
 credData <- filter(credData, Claim.type != "Follow-up")
 
-claims <- data.frame(summary(credData$Claim.type)/length(credData$Claim.type)*100)
-claims$Names <- row.names(claims)
-colnames(claims)[1] <- "Freq"
-claims$Names <- as.character(claims$Names)
-claims <- filter(claims, Names != "Elab source")
-claims <- filter(claims, Names != "Elab credential")
-claims <- filter(claims, Names != "Follow-up")
-claims$Names <- as.factor(claims$Names)
+credData$doc.claim <- paste(credData$Doc.number,credData$Claim.number)
+claims <- credData[!duplicated(credData$doc.claim),]
+
+plotstyle <- theme_hc() + theme(legend.position = "none", 
+                   text = element_text(size = 12),
+                   plot.title = element_text(size = rel(1.5), face = "bold.italic",color="#666666"))
 
 # Define server logic required to draw some pretty pretty charts
 shinyServer(function(input, output) {
@@ -239,9 +237,7 @@ shinyServer(function(input, output) {
                         ylab(paste(input$metric,"(log10 scale)")) +
                         xlab(input$breakdown) +
                         ggtitle("Number of Votes by Subreddit") +
-                        theme(legend.position = "none", 
-                              text = element_text(size = 12),
-                              plot.title = element_text(size = rel(1.5),face="bold.italic",color="#666666"))
+                        plotstyle
                 g
         })
         
@@ -253,9 +249,7 @@ shinyServer(function(input, output) {
                         ylab("Number of Claims-Response Pairs") +
                         xlab("Response Type") +
                         ggtitle("Frequency of Response Types by Claim Type") +
-                        theme(legend.position = "none", 
-                              text = element_text(size = 12),
-                              plot.title = element_text(size = rel(1.5), face = "bold.italic",color="#666666"))
+                        plotstyle
                 if (input$f != "None") {
                         facetz <- paste(input$f,"~.")
                         gg <- gg + facet_grid(facetz)
@@ -265,14 +259,16 @@ shinyServer(function(input, output) {
         })
         
         output$plot3 <- renderPlot({
-                ggg <- ggplot(claims,aes(Names, Freq)) +
-                        geom_point(aes(color = Names, size = 4)) +
+                ggg <- ggplot(claims,aes(Claim.type)) +
+                        geom_bar(aes(fill = Claim.type)) +
                         xlab("Claim Type") +
-                        ylab("Frequency (% of Total Claims)") +
+                        ylab("Frequency") +
                         ggtitle("Frequency of Claims by Type") +
-                        theme(legend.position = "none", 
-                              text = element_text(size = 12),
-                              plot.title = element_text(size = rel(1.5), face = "bold.italic",color="#666666"))
+                        plotstyle
+                if (input$breakdown3 != "None") {
+                        facetz <- paste(input$breakdown3, "~.")
+                        ggg <- ggg + facet_grid(facetz)
+                }
                 
                 ggg
                 

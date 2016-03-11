@@ -10,8 +10,15 @@ shinyUI(fluidPage(
                 tabPanel("Background",
                          fluidRow(
                                  column(8, offset=1,
-                                         h4("Background"),
-                                         p("Welcome to the background section.")
+                                        h3("Background"),
+                                        p("The speed with which new communication technologies have developed over the past several decades has been exciting for many people who recognize that learning is a social process, and accordingly hoped that learning could benefit from improved (or at least increased) methods of social interaction. A number of research fields have been developed around this hope, including Computer-Supported Collaborative Learning (CSCL), which seeks to understand how computers and computer systems can be used to help people learn together (Stahl, Koschmann, & Suthers, 2014)."),
+                                        p("Early conversations about CSCL were often inspired by the notion that computer systems could be used to support the crucial social behaviors underlying functional learning communities -- learning environments that seek to promote individual knowledge building by promoting collective knowledge building (Bielaczyc & Collins, 1999; Scardamalia & Bereiter, 1996). Specifically, it was recognized that learning communities needed members with diverse expertise, and a mechanism for sharing that expertise within the community. In order to develop this mechanism in a way that might be scalable, researchers designed and tested computer systems (e.g. CSILE, Scardamalia & Bereiter, 1996) to facilitate knowledge sharing in learning communities."),
+                                        p("However, most of the research on CSCL systems has focused on relatively small-scale communities. While this research has produced theory and design principles for CSCL environments catering to those kinds of communities, there is a dearth of research on the kinds of communities that have evolved online as the Internet has become more and more widely used over the past two decades. This is problematic because there are certain issues that are magnified in importance as the number of learners in environments grows exponentially -- one of which is how learners assess the credibility of their fellow community members, whom they have almost certainly never met."),
+                                        p("This is an issue that has impacted learning and education well beyond the limits of CSCL. As the Internet has connected learners to more and more information (true and false) and experts (real and phony), and as the extremely open and participatory nature of Internet platforms often makes it very difficult to distinguish true information and real experts from false information and phony experts, learners have found themselves in need of a new set of skills for deciding what is credible and what is just noise (Kelly, 2013)."),
+                                        p("Furthermore, even when a relatively small number of learners are involved, credibility has been found to matter in CSCL because without a belief in the credibility of other community members, learners do not engage in practices that are important for learning (Simeone & Eneau, 2009)."),
+                                        p("Some research has been conducted examining how young people evaluate the credibility of information they find online; one key finding is that some people demonstrate a much more nuanced understanding of how to determine what is credible than do others (Hargittai, Fullerton, Menchen-Trevino, & Thomas, 2010; Menchen-Trevino & Thomas, 2011)."),
+                                        p("However, little is known about how to design CSCL environments to support credibility-grounded knowledge sharing in massive learning communities. This is an important area of study because research on learning in forums (a term some researchers use to describe computer supports for communication) such as group discussion spaces and online communities has revealed that the designs of forums mediate the kinds of learning interactions people have while using those forums (Desanctis, Fayard, Roach, & Jiang, 2003). In other words, it is possible that by designing CSCL environments in a certain way, we can encourage learners to engage in credibility-grounded knowledge sharing."),
+                                        p("In this study, I begin to address our existing lack of knowledge about how to design CSCL environments to support credibility-grounded knowledge sharing in massive learning communities. I do so by analyzing the interactions of users of four distinct communities within Reddit, a popular website on which millions of users engage in discourse, focusing on how users make claims about what is true, and how those claims are received by other users.")
                                         )
                                 )
                         ),
@@ -135,7 +142,7 @@ distinguished the subreddits from each other. First, I describe the key features
                 tabPanel("Findings",
                          fluidRow(
                                  column(8, offset=1,
-                                        h4("Findings"),
+                                        h3("Findings"),
                                         p("Welcome to the findings section.")
                                  )),
                          #plot1
@@ -160,7 +167,21 @@ distinguished the subreddits from each other. First, I describe the key features
                                                     selected = "Subs")
                                         )
                                  ),
-                         plotOutput(outputId = "plot3"),
+                         #plot3
+                         fluidRow(
+                                 column(9,
+                                        plotOutput(outputId = "plot3")
+                                        ),
+                                 column(3,
+                                        br(),
+                                        selectInput(inputId = "breakdown3",
+                                                    label = "Breakdown:",
+                                                    choices = c("None", "Subs", "Formats", "Days"),
+                                                    selected = "None"
+                                                    )
+                                        )
+                         ),
+                         
                          #plot2
                          fluidRow(
                                  column(9,
@@ -187,7 +208,7 @@ distinguished the subreddits from each other. First, I describe the key features
                 tabPanel("References",
                          fluidRow(
                                  column(8, offset=1,
-                                        h4("References"),
+                                        h3("References"),
                                         p("one"),
                                         p("two")
                                         )

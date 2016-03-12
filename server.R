@@ -201,8 +201,8 @@ credData$doc.claim <- paste(credData$Doc.number,credData$Claim.number)
 claims <- credData[!duplicated(credData$doc.claim),]
 
 plotstyle <- theme_hc() + theme(legend.position = "none", 
-                   text = element_text(size = 12),
-                   plot.title = element_text(size = rel(1.5), face = "bold.italic",color="#666666"))
+                                text = element_text(size = 12),
+                                plot.title = element_text(size = rel(1.5), face = "bold.italic",color="#666666"))
 
 # Define server logic required to draw some pretty pretty charts
 shinyServer(function(input, output) {
@@ -213,7 +213,6 @@ shinyServer(function(input, output) {
         #  1) It is "reactive" and therefore should re-execute automatically
         #     when inputs change
         #  2) Its output type is a plot
-        
         output$plot1 <- renderPlot({
                 if (input$metric == "Comments") {
                         metnum <- 2

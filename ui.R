@@ -258,8 +258,14 @@ distinguished the subreddits from each other. First, I describe the key features
                          fluidRow(
                                  column(8, offset=1,
                                         h3("References"),
-                                        p("one"),
-                                        p("two")
+                                        p("Bielaczyc, K., & Collins, A. (1999). Learning communities in classrooms: A reconceptualization of educational practice.", em("Instructional-design theories and models: A new paradigm of instructional theory,"),"2, 269-292."),
+                                        p("DeSanctis, G., Fayard, A. L., Roach, M., & Jiang, L. (2003). Learning in online forums.", em("European Management Journal,"), "21(5), 565-577."),
+                                        p("Eneau, J., & Siméone, A. (2009, July). Trust and credibility in an online computer-supported collaborative learning (CSCL) task.", em("In 9th World Conference on Computers in Education-IFIP.")),
+                                        p("Hargittai, E., Fullerton, L., Menchen-Trevino, E., & Thomas, K.Y. (2010). Trust online: Young adults’ evaluation of web content.", em("International Journal of Communication. 4,"), "468-494."),
+                                        p("Kelly, T. M. (2013).", em("Teaching history in the digital age."), "University of Michigan Press."),
+                                        p("Menchen-Trevino, E., & Hargittai, E. (2011). Young adults’ credibility assessment of Wikipedia.", em("Communication and Society,"), "14(1), 24-51."),
+                                        p("Scardamalia, M., & Bereiter, C. (1996). Computer support for knowledge-building communities. In T. Koschmann (Ed.),", em("CSCL: Theory and practice of an emerging paradigm"), "(pp. 249-268). Mahwah, NJ: Lawrence Erlbaum Associates."),
+                                        p("Stahl, G., Koschmann, T., & Suthers, D. (2014). [Computer-supported collaborative learning]. In R. K. Sawyer (Ed.),", em("The Cambridge handbook of the learning sciences"), "(2nd ed., pp. 751-783). New York, NY: Cambridge University Press.")
                                  )
                          )
                 )
